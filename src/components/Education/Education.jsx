@@ -1,21 +1,21 @@
 import { motion } from 'framer-motion';
 import { FiCalendar, FiAward } from 'react-icons/fi';
 import SectionReveal from '../common/SectionReveal';
-import eduImage from '../../assets/hom.png';
+import eduImage from '../../assets/hero-character.png';
 import './Education.css';
 
 const EDUCATION_DATA = [
   {
-    title: 'Bachelor of Computer Science',
+    title: 'Bachelor of Engineering in Computer Science',
     school: 'State University of Technology',
-    date: '2020 - 2022',
+    date: '2019 - 2023',
     desc: 'Focused on software development, data structures and modern technologies.',
     tag: 'Academic Excellence',
   },
   {
     title: 'Advanced Web Development',
-    school: 'Tech Institute of Design',
-    date: '2023 - 2026',
+    school: 'Tap Academy',
+    date: '2023 - 2024',
     desc: 'Specialized in modern web technologies, UI/UX and scalable applications.',
     tag: 'Academic Excellence',
   },

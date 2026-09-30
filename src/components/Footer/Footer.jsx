@@ -20,7 +20,7 @@ export default function Footer() {
       </div>
 
       <p className="footer-copyright">
-        © {new Date().getFullYear()} Kinich. All rights reserved.
+        © {new Date().getFullYear()} shaadhu. All rights reserved.
       </p>
 
       <button className="footer-back-top" onClick={scrollToTop}>

@@ -6,16 +6,16 @@ import './Experience.css';
 const EXPERIENCE_DATA = [
   {
     icon: <FiShield />,
-    role: 'Software Engineer',
-    company: 'Microsoft',
-    date: 'Mar 2024 - Sep 2025',
-    desc: 'Working on scalable web applications and cloud solutions.',
+    role: 'Software Developer',
+    company: 'Yenepoya Technology Incubator',
+    date: 'Oct 2025 - Present',
+    desc: 'Working on scalable web applications and Mobile Application.',
   },
   {
     icon: <FiX />,
-    role: 'Frontend Developer',
-    company: 'Spotify',
-    date: 'Mar 2025 - Sep 2026',
+    role: 'Web developer Intern',
+    company: 'MalDsAi Laboratory',
+    date: 'Aug 2024 - Mar 2025',
     desc: 'Building interactive user interfaces and enhancing user experience.',
   },
 ];

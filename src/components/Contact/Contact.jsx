@@ -34,7 +34,7 @@ export default function Contact() {
             <span className="contact-icon"><FiMail /></span>
             <div>
               <p className="contact-label">Email</p>
-              <p className="contact-value">hello@example.com</p>
+              <p className="contact-value">mhdshaadhu@gmail.com</p>
             </div>
           </div>
           <div className="contact-item">
@@ -48,14 +48,14 @@ export default function Contact() {
             <span className="contact-icon"><FiPhone /></span>
             <div>
               <p className="contact-label">Phone</p>
-              <p className="contact-value">+123 456 7890</p>
+              <p className="contact-value">+91 94836 65213</p>
             </div>
           </div>
           <div className="contact-item">
             <span className="contact-icon"><FiMapPin /></span>
             <div>
               <p className="contact-label">Location</p>
-              <p className="contact-value">New York, USA</p>
+              <p className="contact-value">Mangalore, India</p>
             </div>
           </div>
         </div>

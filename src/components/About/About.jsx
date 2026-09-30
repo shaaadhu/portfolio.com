@@ -2,7 +2,7 @@ import { motion } from 'framer-motion';
 import { FiArrowRight } from 'react-icons/fi';
 import SectionReveal from '../common/SectionReveal';
 import AnimatedCounter from '../common/AnimatedCounter';
-import aboutImage from '../../assets/hom.png';
+import aboutImage from '../../assets/hero-character.png';
 import './About.css';
 
 export default function About() {
@@ -29,15 +29,15 @@ export default function About() {
 
         <div className="about-stats">
           <div className="about-stat-card">
-            <AnimatedCounter target={200} suffix="" prefix="+" />
+            <AnimatedCounter target={3} suffix="" prefix="+" />
             <span>Clients</span>
           </div>
           <div className="about-stat-card">
-            <AnimatedCounter target={300} suffix="" prefix="+" />
+            <AnimatedCounter target={5} suffix="" prefix="+" />
             <span>Projects</span>
           </div>
           <div className="about-stat-card">
-            <AnimatedCounter target={7} suffix="" prefix="+" />
+            <AnimatedCounter target={1} suffix="" prefix="+" />
             <span>Years</span>
           </div>
         </div>

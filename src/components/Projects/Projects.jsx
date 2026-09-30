@@ -12,12 +12,12 @@ import taskImg from '../../assets/hero-character.png';
 import weatherImg from '../../assets/hero-character.png';
 
 const PROJECTS = [
-  { img: ecommerceImg, title: 'E-Commerce Platform', desc: 'Modern e-commerce solution', tags: ['React', 'Node.js', 'MongoDB'] },
-  { img: fitnessImg, title: 'Fitness Tracker', desc: 'Track workouts and nutrition', tags: ['React Native', 'Firebase'] },
-  { img: aiImg, title: 'AI Image Generator', desc: 'Generate images from text', tags: ['Python', 'React', 'TensorFlow'] },
-  { img: portfolioImg, title: 'Portfolio Website', desc: 'Personal portfolio website', tags: ['React', 'Tailwind CSS'] },
-  { img: taskImg, title: 'Task Management App', desc: 'Organize your work efficiently', tags: ['Next.js', 'TypeScript'] },
-  { img: weatherImg, title: 'Weather Dashboard', desc: 'Real-time weather information', tags: ['React', 'OpenWeather'] },
+  { img: ecommerceImg, title: 'Vidyen', desc: 'International dental education conference and a school management software platform.', tags: ['Flutter', 'MySQL', 'PHP','HTML','JavaScript'] },
+  { img: fitnessImg, title: 'YenEthics', desc: 'The YEC-3 platform is a secure institutional portal designed to digitize and automate the entire ethical and scientific review workflow for human subject research.', tags: ['Flutter', 'MySQL', 'PHP'] },
+  { img: aiImg, title: 'Twitter clone', desc: 'The Twitter (X) clone is a high-performance microblogging platform designed to replicate the core real-time functionalities of X', tags: ['Python', 'React', 'TensorFlow'] },
+  // { img: portfolioImg, title: 'Portfolio Website', desc: 'Personal portfolio website', tags: ['React', 'Tailwind CSS'] },
+  // { img: taskImg, title: 'Task Management App', desc: 'Organize your work efficiently', tags: ['Next.js', 'TypeScript'] },
+  // { img: weatherImg, title: 'Weather Dashboard', desc: 'Real-time weather information', tags: ['React', 'OpenWeather'] },
 ];
 
 export default function Projects() {
