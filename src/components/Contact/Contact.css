@@ -73,6 +73,17 @@
   word-break: break-word;
 }
 
+.contact-value-link {
+  color: inherit;
+  text-decoration: none;
+}
+
+.contact-value-link:hover {
+  color: var(--color-gold-light);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
 /* --- Form --- */
 .contact-form {
   flex: 1.2;

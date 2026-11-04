@@ -1,14 +1,16 @@
 import { useState } from 'react';
 import { motion } from 'framer-motion';
-import { FiMail, FiPhone, FiLinkedin, FiMapPin, FiArrowRight, FiSend } from 'react-icons/fi';
+import { FiMail, FiPhone, FiLinkedin, FiMapPin, FiSend } from 'react-icons/fi';
 import SectionReveal from '../common/SectionReveal';
 import './Contact.css';
+import socialLinks from '../../socialLinks';
 
 const EASE = [0.16, 1, 0.3, 1];
 
+const linkedin = socialLinks.find(({ label }) => label === 'LinkedIn');
 const contactItems = [
   { icon: <FiMail />, label: 'Email', value: 'mhdshaadhu@gmail.com' },
-  { icon: <FiLinkedin />, label: 'LinkedIn', value: 'linkedin.com/in/kinich' },
+  { icon: <FiLinkedin />, label: 'LinkedIn', value: 'linkedin.com/in/mahammad-shahad', href: linkedin.href },
   { icon: <FiPhone />, label: 'Phone', value: '+91 94836 65213' },
   { icon: <FiMapPin />, label: 'Location', value: 'Mangalore, India' },
 ];
@@ -79,7 +81,13 @@ export default function Contact() {
               <span className="contact-icon">{item.icon}</span>
               <div>
                 <p className="contact-label">{item.label}</p>
-                <p className="contact-value">{item.value}</p>
+                <p className="contact-value">
+                  {item.href ? (
+                    <a className="contact-value-link" href={item.href} target="_blank" rel="noreferrer">
+                      {item.value}
+                    </a>
+                  ) : item.value}
+                </p>
               </div>
             </motion.div>
           ))}

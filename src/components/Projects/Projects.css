@@ -97,12 +97,89 @@
   color: var(--color-bg);
   font-size: 1.15rem;
   text-decoration: none;
+  border: 0;
+  cursor: pointer;
   transition: transform 0.3s var(--ease-out), box-shadow 0.3s var(--ease-out);
 }
 
 .project-link-btn:hover {
   transform: scale(1.12);
   box-shadow: 0 4px 18px color-mix(in srgb, var(--color-gold) 40%, transparent);
+}
+
+.project-link-dialog-backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  display: grid;
+  place-items: center;
+  padding: 20px;
+  background: rgba(0, 0, 0, 0.72);
+  backdrop-filter: blur(6px);
+}
+
+.project-link-dialog {
+  position: relative;
+  width: min(100%, 380px);
+  padding: 30px;
+  border: 1px solid var(--color-surface-light);
+  border-radius: var(--radius-lg);
+  background: var(--color-surface);
+  box-shadow: 0 20px 70px rgba(0, 0, 0, 0.5);
+}
+
+.project-link-dialog h3 {
+  padding-right: 28px;
+  color: var(--color-text);
+  font-size: 1.15rem;
+}
+
+.project-link-dialog p {
+  margin: 8px 0 22px;
+  color: var(--color-text-muted);
+  font-size: 0.9rem;
+}
+
+.project-link-dialog-close {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  display: grid;
+  width: 34px;
+  height: 34px;
+  place-items: center;
+  border: 0;
+  border-radius: 50%;
+  background: var(--color-surface-light);
+  color: var(--color-text);
+  cursor: pointer;
+}
+
+.project-link-dialog-options {
+  display: grid;
+  gap: 10px;
+}
+
+.project-link-dialog-options a {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 13px 15px;
+  border: 1px solid var(--color-surface-light);
+  border-radius: var(--radius-md);
+  color: var(--color-text);
+  text-decoration: none;
+  transition: border-color 0.25s var(--ease-out), background 0.25s var(--ease-out);
+}
+
+.project-link-dialog-options a:hover {
+  border-color: var(--color-gold);
+  background: color-mix(in srgb, var(--color-gold) 10%, transparent);
+}
+
+.project-link-dialog-options a svg:last-child {
+  margin-left: auto;
+  color: var(--color-gold-light);
 }
 
 /* --- Info area --- */
@@ -166,6 +243,18 @@
   }
   .projects-header {
     margin-bottom: 28px;
+  }
+}
+
+@media (hover: none) {
+  .project-overlay {
+    opacity: 1;
+    transform: translateY(0);
+    pointer-events: auto;
+  }
+
+  .project-card .project-image {
+    filter: brightness(0.55);
   }
 }
 

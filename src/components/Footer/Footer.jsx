@@ -1,5 +1,6 @@
-import { FiGithub, FiLinkedin, FiTwitter, FiInstagram, FiArrowUp } from 'react-icons/fi';
+import { FiArrowUp } from 'react-icons/fi';
 import './Footer.css';
+import socialLinks from '../../socialLinks';
 
 export default function Footer() {
   const scrollToTop = () => {
@@ -13,10 +14,11 @@ export default function Footer() {
       </div>
 
       <div className="footer-socials">
-        <a href="#"><FiGithub /></a>
-        <a href="#"><FiLinkedin /></a>
-        <a href="#"><FiTwitter /></a>
-        <a href="#"><FiInstagram /></a>
+        {socialLinks.map(({ label, href, Icon }) => (
+          <a key={label} href={href} aria-label={label} title={label} target="_blank" rel="noreferrer">
+            <Icon />
+          </a>
+        ))}
       </div>
 
       <p className="footer-copyright">

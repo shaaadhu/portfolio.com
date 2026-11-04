@@ -1,10 +1,9 @@
 import { motion } from 'framer-motion';
-import { FiGithub, FiLinkedin, FiTwitter, FiInstagram } from 'react-icons/fi';
 import './Hero.css';
 // import heroCharacter from '../../assets/hero-character.png';
-import AnimatedCounter from '../common/AnimatedCounter';
 import TypingText from '../common/TypingText';
 import HeroLens from './HeroLens';
+import socialLinks from '../../socialLinks';
 
 
 
@@ -47,27 +46,32 @@ export default function Hero() {
         </motion.p>
 
         <motion.div className="hero-buttons" {...fadeUp(0.55)}>
-          <motion.button
+          <motion.a
             className="btn-primary"
+            href="#contact"
             whileHover={{ y: -2, scale: 1.02, boxShadow: '0 6px 20px rgba(217,164,65,0.35)' }}
             whileTap={{ scale: 0.98 }}
           >
             Hire Me
-          </motion.button>
-          <motion.button
+          </motion.a>
+          <motion.a
             className="btn-secondary"
+            href="https://drive.google.com/drive/folders/1Y1jHdOWb94BxQ65sfMApSCmmCUVoIBr_?usp=drive_link"
+            target="_blank"
+            rel="noreferrer"
             whileHover={{ y: -2, scale: 1.02 }}
             whileTap={{ scale: 0.98 }}
           >
             Download Resume
-          </motion.button>
+          </motion.a>
         </motion.div>
 
         <motion.div className="hero-socials" {...fadeUp(0.7)}>
-          <a href="#"><FiGithub /></a>
-          <a href="#"><FiLinkedin /></a>
-          <a href="#"><FiTwitter /></a>
-          <a href="#"><FiInstagram /></a>
+          {socialLinks.map(({ label, href, Icon }) => (
+            <a key={label} href={href} aria-label={label} title={label} target="_blank" rel="noreferrer">
+              <Icon />
+            </a>
+          ))}
         </motion.div>
 
         <motion.div className="hero-stats" {...fadeUp(0.85)}>
