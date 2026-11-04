@@ -1,0 +1,353 @@
+/* ===== SKILL VISUAL: 3D ORBITAL TECH STAGE ===== */
+.skill-visual-stage {
+  position: relative;
+  width: 100%;
+  max-width: 480px;
+  aspect-ratio: 1 / 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  perspective: 1000px;
+  margin: 0 auto;
+}
+
+/* Ambient glow matching Hero backdrop */
+.skill-visual-glow {
+  position: absolute;
+  inset: 10%;
+  border-radius: 50%;
+  background: radial-gradient(
+    circle,
+    color-mix(in srgb, var(--color-gold) 35%, transparent) 0%,
+    color-mix(in srgb, var(--color-gold-light) 12%, transparent) 45%,
+    transparent 70%
+  );
+  filter: blur(40px);
+  opacity: 0.35;
+  animation: pulseGlow 6s ease-in-out infinite;
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* 3D Tilted Orbital Arena */
+.orbital-arena {
+  position: relative;
+  width: 360px;
+  height: 360px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transform-style: preserve-3d;
+  transform: rotateX(54deg) rotateZ(-18deg);
+  z-index: 1;
+}
+
+/* --- Rings --- */
+.orbit-ring {
+  position: absolute;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transform-style: preserve-3d;
+  pointer-events: none;
+}
+
+.orbit-ring-outer {
+  width: 340px;
+  height: 340px;
+  border: 1.5px dashed color-mix(in srgb, var(--color-gold-light) 35%, transparent);
+  box-shadow: 0 0 20px color-mix(in srgb, var(--color-gold) 15%, transparent);
+}
+
+.orbit-ring-middle {
+  width: 240px;
+  height: 240px;
+  border: 1px solid color-mix(in srgb, var(--color-gold) 30%, transparent);
+}
+
+.orbit-ring-inner {
+  width: 150px;
+  height: 150px;
+  border: 1px dashed color-mix(in srgb, var(--color-gold-light) 20%, transparent);
+}
+
+/* Rotators */
+.orbit-ring-rotator {
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  transform-style: preserve-3d;
+  pointer-events: none;
+}
+
+.orbit-clockwise {
+  animation: orbitSpinClockwise 32s linear infinite;
+}
+
+.orbit-counter {
+  animation: orbitSpinCounter 24s linear infinite;
+}
+
+@keyframes orbitSpinClockwise {
+  from { transform: rotateZ(0deg); }
+  to { transform: rotateZ(360deg); }
+}
+
+@keyframes orbitSpinCounter {
+  from { transform: rotateZ(360deg); }
+  to { transform: rotateZ(0deg); }
+}
+
+/* Orbiting Nodes (Pills on the outer ring) */
+.orbit-node {
+  position: absolute;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: var(--color-surface);
+  border: 1.5px solid color-mix(in srgb, var(--color-gold-light) 60%, transparent);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 18px rgba(0, 0, 0, 0.4), 0 0 14px color-mix(in srgb, var(--color-gold) 25%, transparent);
+  cursor: pointer;
+  pointer-events: auto;
+  /* Counter-rotate so content always faces upright despite 3D parent tilt */
+  animation: counterRotateItem 32s linear infinite;
+  transition: transform 0.3s var(--ease-out), border-color 0.3s;
+}
+
+.orbit-node:hover {
+  transform: scale(1.22);
+  border-color: var(--color-gold-light);
+  box-shadow: 0 0 22px color-mix(in srgb, var(--color-gold-light) 60%, transparent);
+}
+
+/* Counter rotate items */
+@keyframes counterRotateItem {
+  from {
+    transform: rotateZ(0deg) rotateX(-54deg);
+  }
+  to {
+    transform: rotateZ(-360deg) rotateX(-54deg);
+  }
+}
+
+/* Node positions around the 340px circle */
+/* Radius = 170px, offset by half node size (22px) -> center is 170-22 = 148 */
+.orbit-node-0 {
+  top: -22px;
+  left: 148px;
+}
+.orbit-node-1 {
+  top: 96px;
+  right: -16px;
+}
+.orbit-node-2 {
+  bottom: 12px;
+  right: 32px;
+}
+.orbit-node-3 {
+  bottom: 12px;
+  left: 32px;
+}
+.orbit-node-4 {
+  top: 96px;
+  left: -16px;
+}
+
+.node-icon {
+  font-size: 1.15rem;
+  line-height: 1;
+}
+
+.node-tooltip {
+  position: absolute;
+  bottom: -22px;
+  font-size: 0.68rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  color: var(--color-gold-light);
+  background: rgba(16, 14, 12, 0.85);
+  padding: 2px 7px;
+  border-radius: 999px;
+  white-space: nowrap;
+  opacity: 0;
+  transform: translateY(-4px);
+  transition: opacity 0.25s, transform 0.25s;
+  pointer-events: none;
+}
+
+.orbit-node:hover .node-tooltip {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Middle pulse markers */
+.orbit-pulse-marker {
+  position: absolute;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--color-gold-light);
+  box-shadow: 0 0 10px var(--color-gold-light);
+}
+
+.marker-1 {
+  top: -4px;
+  left: 116px;
+}
+.marker-2 {
+  bottom: -4px;
+  right: 116px;
+}
+
+/* --- Center Glowing Core --- */
+.orbit-core {
+  position: absolute;
+  width: 88px;
+  height: 88px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transform-style: preserve-3d;
+  /* Keep core upright relative to 3D arena */
+  transform: rotateX(-54deg) rotateZ(18deg);
+  pointer-events: none;
+}
+
+.core-pulse-wave {
+  position: absolute;
+  inset: -14px;
+  border-radius: 50%;
+  border: 1.5px solid color-mix(in srgb, var(--color-gold-light) 40%, transparent);
+  animation: corePulse 3s cubic-bezier(0.16, 1, 0.3, 1) infinite;
+}
+
+@keyframes corePulse {
+  0% { transform: scale(0.85); opacity: 0.8; }
+  100% { transform: scale(1.45); opacity: 0; }
+}
+
+.core-sphere {
+  position: relative;
+  width: 68px;
+  height: 68px;
+  border-radius: 50%;
+  background: radial-gradient(
+    circle at 35% 30%,
+    color-mix(in srgb, var(--color-gold-light) 45%, var(--color-surface)) 0%,
+    var(--color-surface) 60%,
+    #0c0a08 100%
+  );
+  border: 1.5px solid color-mix(in srgb, var(--color-gold-light) 50%, transparent);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow:
+    inset 0 0 16px color-mix(in srgb, var(--color-gold-light) 35%, transparent),
+    0 0 28px color-mix(in srgb, var(--color-gold) 35%, transparent);
+}
+
+.core-symbol {
+  font-size: 1.6rem;
+  color: var(--color-gold-light);
+  filter: drop-shadow(0 0 8px var(--color-gold-light));
+  animation: floatY 4s ease-in-out infinite;
+}
+
+/* Floating Glassmorphic Pill Badges */
+.skill-floating-pill {
+  position: absolute;
+  z-index: 3;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 16px;
+  background: rgba(26, 23, 19, 0.85);
+  border: 1px solid color-mix(in srgb, var(--color-gold) 35%, transparent);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-radius: 999px;
+  box-shadow: 0 10px 28px rgba(0, 0, 0, 0.45);
+  pointer-events: none;
+}
+
+.pill-top {
+  top: 10px;
+  right: 12px;
+  animation: floatY 5s ease-in-out infinite;
+}
+
+.pill-bottom {
+  bottom: 12px;
+  left: 12px;
+  animation: floatY 5s ease-in-out infinite 2.5s;
+}
+
+.pill-icon-glow {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: color-mix(in srgb, var(--color-gold) 20%, transparent);
+  color: var(--color-gold-light);
+  font-size: 0.95rem;
+}
+
+.skill-floating-pill strong {
+  display: block;
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: var(--color-text);
+  line-height: 1.1;
+}
+
+.skill-floating-pill span {
+  font-size: 0.72rem;
+  color: var(--color-gold);
+  line-height: 1;
+}
+
+/* Responsive adjustments */
+@media (max-width: 1024px) {
+  .skill-visual-stage {
+    max-width: 400px;
+  }
+  .orbital-arena {
+    width: 300px;
+    height: 300px;
+  }
+  .orbit-ring-outer {
+    width: 290px;
+    height: 290px;
+  }
+  .orbit-ring-middle {
+    width: 200px;
+    height: 200px;
+  }
+  .orbit-node-0 { top: -20px; left: 123px; }
+  .orbit-node-1 { top: 82px; right: -14px; }
+  .orbit-node-2 { bottom: 10px; right: 26px; }
+  .orbit-node-3 { bottom: 10px; left: 26px; }
+  .orbit-node-4 { top: 82px; left: -14px; }
+}
+
+@media (max-width: 768px) {
+  .skill-visual-stage {
+    max-width: 340px;
+    margin-top: 24px;
+  }
+  .skill-floating-pill {
+    padding: 8px 12px;
+  }
+  .skill-floating-pill strong {
+    font-size: 0.75rem;
+  }
+  .skill-floating-pill span {
+    font-size: 0.65rem;
+  }
+}

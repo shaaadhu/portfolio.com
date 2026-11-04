@@ -9,19 +9,22 @@
 .hero {
   /* --font-hero: 'Plus Jakarta Sans', 'Poppins', sans-serif; */
   position: relative;
+  z-index: 2;
   overflow-x: clip;
   display: flex;
   align-items: center;
   justify-content: space-between;
   gap: 40px;
   padding: 60px 5% 80px;
-  flex-wrap: wrap;
+  min-height: calc(100vh - 72px); /* fill viewport minus navbar */
 }
 
 .hero-text {
   position: relative;
   z-index: 3; /* text/buttons always above the orbit canvas */
   max-width: 560px;
+  flex: 1 1 auto;
+  min-width: 0;
 }
 
 .hero-eyebrow {
@@ -47,7 +50,7 @@
   display: flex;
   flex-direction: column;
   width: fit-content; /* lens % positions are relative to the text itself */
-  font-size: clamp(3.1rem, 8.2vw, 5.6rem);
+  font-size: clamp(2.6rem, 7vw, 5.6rem);
   line-height: 0.95;
   margin-bottom: 22px;
 }
@@ -207,6 +210,7 @@
   display: flex;
   gap: 16px;
   margin-bottom: 28px;
+  flex-wrap: wrap;
 }
 
 .btn-primary {
@@ -217,6 +221,8 @@
   border-radius: 999px;
   font-weight: 600;
   cursor: pointer;
+  font-size: 0.95rem;
+  white-space: nowrap;
 }
 
 .btn-secondary {
@@ -227,6 +233,8 @@
   border-radius: 999px;
   font-weight: 600;
   cursor: pointer;
+  font-size: 0.95rem;
+  white-space: nowrap;
 }
 
 .hero-socials {
@@ -254,6 +262,7 @@
 
 .hero-image-wrap {
   position: relative;
+  z-index: 2;
   width: 400px;
   height: 400px;
   max-width: 100%;
@@ -292,26 +301,123 @@
   pointer-events: none; /* keeps the person image fully static/unaffected */
 }
 
-@media (max-width: 900px) {
+/* ===== RESPONSIVE: TABLET (max-width: 1024px) ===== */
+@media (max-width: 1024px) {
   .hero {
-     /* flex-direction: column-reverse; */
-    flex-direction: column;
-    text-align: center;
-    padding: 40px 6% 60px;
+    gap: 32px;
+    padding: 40px 5% 60px;
+    min-height: auto;
   }
-  .hero-text { max-width: 100%; }
-  .hero-subtitle { margin-left: auto; margin-right: auto; }
-  .hero-buttons, .hero-socials, .hero-stats { justify-content: center; }
-  .hero-buttons { gap: 10px; }
-  .btn-primary, .btn-secondary {
-    padding: 11px 20px;
-    font-size: 0.9rem;
+  .hero-text {
+    max-width: 480px;
   }
-  .hero-title { font-size: 2.2rem; }
-  .hero-name-block { align-items: center; margin-inline: auto; }
-  .hero-image-wrap { width: 280px; height: 280px; }
+  .hero-name-block {
+    font-size: clamp(2.4rem, 6.5vw, 4.2rem);
+  }
+  .hero-image-wrap {
+    width: 320px;
+    height: 320px;
+  }
 }
 
-@media (max-width: 480px) {
-  .hero-image-wrap { width: 220px; height: 220px; }
+/* ===== RESPONSIVE: MOBILE LANDSCAPE & SMALL TABLET (max-width: 900px) ===== */
+@media (max-width: 900px) {
+  .hero {
+    flex-direction: column;
+    text-align: center;
+    padding: 32px 6% 48px;
+    gap: 24px;
+    min-height: auto;
+  }
+  .hero-text {
+    max-width: 100%;
+    order: 1;
+  }
+  .hero-image-wrap {
+    order: 0;
+    width: 260px;
+    height: 260px;
+  }
+  .hero-subtitle {
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .hero-buttons,
+  .hero-socials,
+  .hero-stats {
+    justify-content: center;
+  }
+  .hero-buttons {
+    gap: 10px;
+  }
+  .btn-primary,
+  .btn-secondary {
+    padding: 11px 20px;
+    font-size: 0.88rem;
+  }
+  .hero-title {
+    font-size: 2.2rem;
+  }
+  .hero-name-block {
+    align-items: center;
+    margin-inline: auto;
+    font-size: clamp(2.2rem, 9vw, 3.8rem);
+  }
+}
+
+/* ===== RESPONSIVE: MOBILE (max-width: 640px) ===== */
+@media (max-width: 640px) {
+  .hero {
+    padding: 24px 5% 40px;
+    gap: 20px;
+  }
+  .hero-name-block {
+    font-size: clamp(2rem, 10vw, 3rem);
+  }
+  .hero-image-wrap {
+    width: 220px;
+    height: 220px;
+  }
+  .hero-subtitle {
+    font-size: 0.92rem;
+    min-height: 2.8em;
+  }
+  .hero-eyebrow {
+    font-size: 0.72rem;
+    letter-spacing: 1.5px;
+  }
+}
+
+/* ===== RESPONSIVE: SMALL MOBILE (max-width: 400px) ===== */
+@media (max-width: 400px) {
+  .hero {
+    padding: 20px 4% 32px;
+  }
+  .hero-name-block {
+    font-size: clamp(1.8rem, 12vw, 2.6rem);
+  }
+  .hero-image-wrap {
+    width: 180px;
+    height: 180px;
+  }
+  .hero-buttons {
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+  }
+  .btn-primary,
+  .btn-secondary {
+    width: 100%;
+    max-width: 260px;
+    text-align: center;
+    justify-content: center;
+    padding: 12px 18px;
+    font-size: 0.85rem;
+  }
+  .hero-socials {
+    gap: 12px;
+  }
+  .hero-stats {
+    gap: 16px;
+  }
 }

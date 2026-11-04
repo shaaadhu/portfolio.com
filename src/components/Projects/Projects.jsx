@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion';
-import { FiArrowRight } from 'react-icons/fi';
+import { FiArrowRight, FiExternalLink, FiGithub } from 'react-icons/fi';
 import SectionReveal from '../common/SectionReveal';
 import './Projects.css';
 
@@ -7,18 +7,29 @@ import './Projects.css';
 import ecommerceImg from '../../assets/hero-character.png';
 import fitnessImg from '../../assets/hero-character.png';
 import aiImg from '../../assets/hero-character.png';
-import portfolioImg from '../../assets/hero-character.png';
-import taskImg from '../../assets/hero-character.png';
-import weatherImg from '../../assets/hero-character.png';
+
+const EASE = [0.16, 1, 0.3, 1];
 
 const PROJECTS = [
-  { img: ecommerceImg, title: 'Vidyen', desc: 'International dental education conference and a school management software platform.', tags: ['Flutter', 'MySQL', 'PHP','HTML','JavaScript'] },
+  { img: ecommerceImg, title: 'Vidyen', desc: 'International dental education conference and a school management software platform.', tags: ['Flutter', 'MySQL', 'PHP', 'HTML', 'JavaScript'] },
   { img: fitnessImg, title: 'YenEthics', desc: 'The YEC-3 platform is a secure institutional portal designed to digitize and automate the entire ethical and scientific review workflow for human subject research.', tags: ['Flutter', 'MySQL', 'PHP'] },
-  { img: aiImg, title: 'Twitter clone', desc: 'The Twitter (X) clone is a high-performance microblogging platform designed to replicate the core real-time functionalities of X', tags: ['Python', 'React', 'TensorFlow'] },
-  // { img: portfolioImg, title: 'Portfolio Website', desc: 'Personal portfolio website', tags: ['React', 'Tailwind CSS'] },
-  // { img: taskImg, title: 'Task Management App', desc: 'Organize your work efficiently', tags: ['Next.js', 'TypeScript'] },
-  // { img: weatherImg, title: 'Weather Dashboard', desc: 'Real-time weather information', tags: ['React', 'OpenWeather'] },
+  { img: aiImg, title: 'Twitter clone', desc: 'The Twitter (X) clone is a high-performance microblogging platform designed to replicate the core real-time functionalities of X', tags: ['Java', 'React', 'TensorFlow'] },
 ];
+
+const cardVariants = {
+  hidden: { opacity: 0, y: 50, scale: 0.92, filter: 'blur(8px)' },
+  visible: (i) => ({
+    opacity: 1,
+    y: 0,
+    scale: 1,
+    filter: 'blur(0px)',
+    transition: {
+      duration: 0.7,
+      delay: (i % 3) * 0.12,
+      ease: EASE,
+    },
+  }),
+};
 
 export default function Projects() {
   return (
@@ -27,9 +38,9 @@ export default function Projects() {
         <h2 className="section-title">
           Projects<span className="gold-text">.</span>
         </h2>
-        <a href="#" className="view-all-link">
+        {/* <a href="#" className="view-all-link">
           View All Projects <FiArrowRight />
-        </a>
+        </a> */}
       </SectionReveal>
 
       <div className="projects-grid">
@@ -37,14 +48,27 @@ export default function Projects() {
           <motion.div
             key={project.title}
             className="project-card"
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, amount: 0.2 }}
-            transition={{ duration: 0.5, delay: (i % 3) * 0.1, ease: [0.16, 1, 0.3, 1] }}
-            whileHover={{ y: -6, boxShadow: '0 12px 28px rgba(0,0,0,0.4)' }}
+            custom={i}
+            variants={cardVariants}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, amount: 0.15 }}
+            whileHover={{
+              y: -8,
+              transition: { duration: 0.35, ease: EASE },
+            }}
           >
             <div className="project-image-wrap">
               <img src={project.img} alt={project.title} className="project-image" />
+              {/* Overlay that slides up on hover */}
+              <div className="project-overlay">
+                <a href="#" className="project-link-btn" aria-label="View live">
+                  <FiExternalLink />
+                </a>
+                <a href="#" className="project-link-btn" aria-label="View source">
+                  <FiGithub />
+                </a>
+              </div>
             </div>
             <div className="project-info">
               <h3>{project.title}</h3>

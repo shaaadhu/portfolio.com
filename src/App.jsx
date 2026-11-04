@@ -7,11 +7,13 @@ import Experience from './components/Experience/Experience';
 import Projects from './components/Projects/Projects';
 import Contact from './components/Contact/Contact';
 import Footer from './components/Footer/Footer';
+import OrbitCapField from './components/Hero/OrbitCapField';
 import './styles/global.css';
 
 function App() {
   return (
     <>
+      <OrbitCapField />
       <Navbar />
       <Hero />
       <Education />

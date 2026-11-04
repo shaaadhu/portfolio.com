@@ -7,17 +7,17 @@ import './Education.css';
 const EDUCATION_DATA = [
   {
     title: 'Bachelor of Engineering in Computer Science',
-    school: 'State University of Technology',
+    school: 'Kvg college of engineering',
     date: '2019 - 2023',
     desc: 'Focused on software development, data structures and modern technologies.',
-    tag: 'Academic Excellence',
+
   },
   {
     title: 'Advanced Web Development',
     school: 'Tap Academy',
     date: '2023 - 2024',
     desc: 'Specialized in modern web technologies, UI/UX and scalable applications.',
-    tag: 'Academic Excellence',
+
   },
 ];
 
@@ -33,7 +33,7 @@ export default function Education() {
 
       <div className="education-grid">
         <SectionReveal delay={0.1} className="education-image-wrap">
-          <img src={eduImage} alt="Education" className="education-image" />
+          {/* <img src={eduImage} alt="Education" className="education-image" /> */}
         </SectionReveal>
 
         <div className="education-cards">
@@ -59,7 +59,7 @@ export default function Education() {
                 </div>
                 <p className="education-school">{item.school}</p>
                 <p className="education-desc">{item.desc}</p>
-                <span className="education-tag">🎓 {item.tag}</span>
+
               </div>
             </motion.div>
           ))}

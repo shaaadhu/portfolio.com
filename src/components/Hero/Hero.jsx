@@ -1,11 +1,9 @@
 import { motion } from 'framer-motion';
 import { FiGithub, FiLinkedin, FiTwitter, FiInstagram } from 'react-icons/fi';
 import './Hero.css';
-import heroCharacter from '../../assets/am.png';
+// import heroCharacter from '../../assets/hero-character.png';
 import AnimatedCounter from '../common/AnimatedCounter';
 import TypingText from '../common/TypingText';
-import ParticleOrbit from './ParticleOrbit';
-// import ParticleOrbit from './ParticleOrbit.dots-only';
 import HeroLens from './HeroLens';
 
 
@@ -21,7 +19,7 @@ export default function Hero() {
     <section id="hero" className="hero">
       <div className="hero-text">
         <motion.p className="hero-eyebrow" {...fadeUp(0.1)}>
-      Hello! , I'm
+          Hello I'm,
         </motion.p>
 
         <motion.div
@@ -38,9 +36,12 @@ export default function Hero() {
         <motion.p className="hero-subtitle" {...fadeUp(0.4)}>
           <TypingText
             prefix="SOFTWARE ENGINEER -"
+
             phrases={[
-              'FullStack developer',
+
+              'FullStack Web developer',
               'Mobile App developer',
+
             ]}
           />
         </motion.p>
@@ -69,12 +70,14 @@ export default function Hero() {
           <a href="#"><FiInstagram /></a>
         </motion.div>
 
-        {/* <motion.div className="hero-stats" {...fadeUp(0.85)}>
-        
-          <motion.p className="hero-eyebrow" {...fadeUp(0.1)}>
-        <span> SOFTWARE ENGINEER</span> FROM INDIA
-        </motion.p>
-        </motion.div> */}
+        <motion.div className="hero-stats" {...fadeUp(0.85)}>
+          {/* <div><AnimatedCounter target="0110111000" suffix="" /></div> */}
+          {/* <div><AnimatedCounter target={300} suffix="+" /></div>
+          <div><AnimatedCounter target={7} suffix="+" /></div> */}
+          {/* <motion.p className="hero-eyebrow" {...fadeUp(0.1)}>
+            <span> SOFTWARE ENGINEER</span> FROM INDIA
+          </motion.p> */}
+        </motion.div>
       </div>
 
       <motion.div
@@ -84,14 +87,13 @@ export default function Hero() {
         transition={{ duration: 0.9, delay: 0.3, ease: [0.16, 1, 0.3, 1] }}
       >
         <div className="hero-backdrop" />
-        <ParticleOrbit className="hero-orbit" />
         {/* Static placeholder — swap for the transparent person image later.
             It sits above the orbit and never reacts to cursor movement. */}
-        <img
+        {/* <img
           src={heroCharacter}
           alt="Gabriel Lucas"
           className="hero-character"
-        />
+        /> */}
       </motion.div>
     </section>
   );

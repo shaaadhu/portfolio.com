@@ -6,6 +6,11 @@ import aboutImage from '../../assets/hero-character.png';
 import './About.css';
 
 export default function About() {
+  const scrollToContact = () => {
+    const el = document.getElementById('contact');
+    if (el) el.scrollIntoView({ behavior: 'smooth' });
+  };
+
   return (
     <section id="about-me" className="about">
       <SectionReveal className="about-text">
@@ -23,6 +28,7 @@ export default function About() {
           className="btn-primary about-cta"
           whileHover={{ y: -2, scale: 1.02, boxShadow: '0 6px 20px rgba(217,164,65,0.35)' }}
           whileTap={{ scale: 0.98 }}
+          onClick={scrollToContact}
         >
           Let's Talk <FiArrowRight />
         </motion.button>
@@ -51,7 +57,7 @@ export default function About() {
         transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
       >
         <div className="about-backdrop" />
-        <img src={aboutImage} alt="About me" className="about-image" />
+        {/* <img src={aboutImage} alt="About me" className="about-image" /> */}
       </motion.div>
     </section>
   );

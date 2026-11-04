@@ -14,6 +14,7 @@
   font-weight: 700;
   font-size: 1.3rem;
   letter-spacing: 0.5px;
+  white-space: nowrap;
 }
 .navbar-logo .dot { color: var(--color-gold); }
 
@@ -59,6 +60,7 @@
   border-radius: 999px;
   font-weight: 600;
   cursor: pointer;
+  white-space: nowrap;
 }
 
 .navbar-toggle {
@@ -82,6 +84,7 @@
   display: flex;
   flex-direction: column;
   gap: 16px;
+  z-index: 99;
 }
 
 .navbar-mobile-menu button {
@@ -98,4 +101,16 @@
   .navbar-links,
   .navbar-cta { display: none; }
   .navbar-toggle { display: block; }
+  .navbar {
+    padding: 16px 5%;
+  }
+}
+
+@media (max-width: 400px) {
+  .navbar {
+    padding: 12px 4%;
+  }
+  .navbar-logo {
+    font-size: 1.1rem;
+  }
 }

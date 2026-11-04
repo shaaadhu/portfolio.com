@@ -1,12 +1,13 @@
+/* ===== PROJECTS SECTION — card grid with overlay ===== */
 .projects {
-  padding: 60px 5%;
+  padding: 80px 5%;
 }
 
 .projects-header {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  margin-bottom: 32px;
+  margin-bottom: 36px;
   flex-wrap: wrap;
   gap: 12px;
 }
@@ -18,6 +19,11 @@
   color: var(--color-gold);
   font-size: 0.9rem;
   font-weight: 500;
+  transition: gap 0.3s var(--ease-out);
+}
+
+.view-all-link:hover {
+  gap: 10px;
 }
 
 .projects-grid {
@@ -26,13 +32,23 @@
   gap: 24px;
 }
 
+/* --- Card --- */
 .project-card {
   background: var(--color-surface);
+  border: 1px solid var(--color-surface-light);
   border-radius: var(--radius-md);
   overflow: hidden;
+  transition: border-color 0.4s var(--ease-out), box-shadow 0.4s var(--ease-out);
 }
 
+.project-card:hover {
+  border-color: color-mix(in srgb, var(--color-gold) 35%, transparent);
+  box-shadow: 0 16px 48px rgba(0, 0, 0, 0.35);
+}
+
+/* --- Image wrapper & overlay --- */
 .project-image-wrap {
+  position: relative;
   width: 100%;
   aspect-ratio: 16 / 10;
   overflow: hidden;
@@ -42,38 +58,92 @@
   width: 100%;
   height: 100%;
   object-fit: cover;
+  transition: transform 0.6s var(--ease-out), filter 0.6s var(--ease-out);
 }
 
+.project-card:hover .project-image {
+  transform: scale(1.06);
+  filter: brightness(0.55);
+}
+
+/* Overlay with action buttons */
+.project-overlay {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 14px;
+  opacity: 0;
+  transform: translateY(12px);
+  transition: opacity 0.4s var(--ease-out), transform 0.4s var(--ease-out);
+  pointer-events: none;
+}
+
+.project-card:hover .project-overlay {
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: auto;
+}
+
+.project-link-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: color-mix(in srgb, var(--color-gold) 85%, transparent);
+  color: var(--color-bg);
+  font-size: 1.15rem;
+  text-decoration: none;
+  transition: transform 0.3s var(--ease-out), box-shadow 0.3s var(--ease-out);
+}
+
+.project-link-btn:hover {
+  transform: scale(1.12);
+  box-shadow: 0 4px 18px color-mix(in srgb, var(--color-gold) 40%, transparent);
+}
+
+/* --- Info area --- */
 .project-info {
-  padding: 16px 20px;
+  padding: 18px 22px 20px;
 }
 
 .project-info h3 {
-  font-size: 1rem;
+  font-size: 1.02rem;
   font-weight: 600;
-  margin-bottom: 4px;
+  margin-bottom: 6px;
 }
 
 .project-info p {
-  font-size: 0.85rem;
+  font-size: 0.84rem;
   color: var(--color-text-muted);
-  margin-bottom: 12px;
+  margin-bottom: 14px;
+  line-height: 1.55;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
 }
 
 .project-tags {
   display: flex;
   flex-wrap: wrap;
-  gap: 8px;
+  gap: 6px;
 }
 
 .project-tag {
-  font-size: 0.75rem;
-  background: var(--color-surface-light);
-  color: var(--color-text-muted);
-  padding: 4px 10px;
+  font-size: 0.72rem;
+  font-weight: 500;
+  background: color-mix(in srgb, var(--color-gold) 10%, transparent);
+  color: var(--color-gold-light);
+  padding: 3px 10px;
   border-radius: 999px;
+  letter-spacing: 0.02em;
 }
 
+/* ===== RESPONSIVE ===== */
 @media (max-width: 1024px) {
   .projects-grid {
     grid-template-columns: repeat(2, 1fr);
@@ -81,7 +151,29 @@
 }
 
 @media (max-width: 640px) {
+  .projects {
+    padding: 44px 5%;
+  }
   .projects-grid {
     grid-template-columns: 1fr;
+    gap: 20px;
+  }
+  .project-info {
+    padding: 14px 16px 18px;
+  }
+  .project-info h3 {
+    font-size: 0.95rem;
+  }
+  .projects-header {
+    margin-bottom: 28px;
+  }
+}
+
+@media (max-width: 400px) {
+  .projects {
+    padding: 36px 4%;
+  }
+  .project-info {
+    padding: 12px 14px 16px;
   }
 }

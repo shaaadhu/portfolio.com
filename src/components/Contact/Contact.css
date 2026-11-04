@@ -1,7 +1,8 @@
+/* ===== CONTACT SECTION ===== */
 .contact {
   display: flex;
   gap: 48px;
-  padding: 60px 5%;
+  padding: 80px 5%;
   flex-wrap: wrap;
 }
 
@@ -13,53 +14,81 @@
 .contact-desc {
   color: var(--color-text-muted);
   font-size: 0.9rem;
-  margin: 12px 0 28px;
+  margin: 12px 0 32px;
   max-width: 360px;
+  line-height: 1.6;
 }
 
 .contact-list {
   display: flex;
   flex-direction: column;
-  gap: 20px;
+  gap: 18px;
 }
 
+/* --- Contact item with hover slide --- */
 .contact-item {
   display: flex;
   align-items: center;
   gap: 14px;
+  cursor: default;
+  border-radius: var(--radius-md);
+  padding: 10px 14px;
+  margin-left: -14px;
+  transition: background 0.35s var(--ease-out);
+}
+
+.contact-item:hover {
+  background: color-mix(in srgb, var(--color-surface) 70%, transparent);
 }
 
 .contact-icon {
-  width: 40px;
-  height: 40px;
+  width: 44px;
+  height: 44px;
   flex-shrink: 0;
-  background: var(--color-surface);
-  color: var(--color-gold);
-  border-radius: 10px;
+  background: color-mix(in srgb, var(--color-gold) 12%, transparent);
+  color: var(--color-gold-light);
+  border-radius: 12px;
   display: flex;
   align-items: center;
   justify-content: center;
+  font-size: 1.1rem;
+  transition: box-shadow 0.4s var(--ease-out);
+}
+
+.contact-item:hover .contact-icon {
+  box-shadow: 0 0 16px color-mix(in srgb, var(--color-gold-light) 22%, transparent);
 }
 
 .contact-label {
-  font-size: 0.75rem;
+  font-size: 0.72rem;
   color: var(--color-text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  margin-bottom: 2px;
 }
 
 .contact-value {
   font-size: 0.9rem;
   font-weight: 500;
+  word-break: break-word;
 }
 
+/* --- Form --- */
 .contact-form {
   flex: 1.2;
-  min-width: 300px;
+  min-width: 280px;
   background: var(--color-surface);
+  border: 1px solid var(--color-surface-light);
   border-radius: var(--radius-lg);
-  padding: 28px;
+  padding: 32px;
   display: flex;
   flex-direction: column;
-  gap: 16px;
+  gap: 18px;
+  transition: border-color 0.4s var(--ease-out);
+}
+
+.contact-form:hover {
+  border-color: color-mix(in srgb, var(--color-gold) 20%, transparent);
 }
 
 .form-row {
@@ -72,11 +101,17 @@
   display: flex;
   flex-direction: column;
   gap: 6px;
+  position: relative;
 }
 
 .form-group label {
-  font-size: 0.8rem;
+  font-size: 0.78rem;
   color: var(--color-text-muted);
+  transition: color 0.3s;
+}
+
+.form-group.is-focused label {
+  color: var(--color-gold-light);
 }
 
 .form-group input,
@@ -84,18 +119,20 @@
   background: var(--color-surface-light);
   border: 1px solid transparent;
   border-radius: 10px;
-  padding: 12px 14px;
+  padding: 13px 16px;
   color: var(--color-text);
   font-family: inherit;
   font-size: 0.9rem;
   resize: none;
-  transition: border-color 0.25s var(--ease-out);
+  transition: border-color 0.3s var(--ease-out), box-shadow 0.3s var(--ease-out);
+  width: 100%;
 }
 
 .form-group input:focus,
 .form-group textarea:focus {
   outline: none;
   border-color: var(--color-gold);
+  box-shadow: 0 0 0 3px color-mix(in srgb, var(--color-gold) 15%, transparent);
 }
 
 .contact-submit {
@@ -104,10 +141,63 @@
   justify-content: center;
   gap: 8px;
   align-self: flex-start;
+  font-size: 0.92rem;
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 900px) {
+  .contact {
+    gap: 32px;
+    padding: 56px 5%;
+  }
+  .contact-info {
+    min-width: 100%;
+  }
+  .contact-desc {
+    max-width: 100%;
+  }
 }
 
 @media (max-width: 700px) {
   .form-row {
     flex-direction: column;
+  }
+}
+
+@media (max-width: 640px) {
+  .contact {
+    padding: 44px 5%;
+    gap: 28px;
+  }
+  .contact-form {
+    padding: 22px;
+    min-width: 100%;
+  }
+  .contact-submit {
+    align-self: stretch;
+    justify-content: center;
+  }
+  .contact-item {
+    padding: 8px 10px;
+    margin-left: -10px;
+  }
+}
+
+@media (max-width: 400px) {
+  .contact {
+    padding: 36px 4%;
+  }
+  .contact-form {
+    padding: 16px;
+  }
+  .contact-item {
+    gap: 10px;
+  }
+  .contact-icon {
+    width: 38px;
+    height: 38px;
+  }
+  .contact-value {
+    font-size: 0.82rem;
   }
 }

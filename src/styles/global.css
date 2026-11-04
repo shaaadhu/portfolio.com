@@ -1,3 +1,18 @@
 @import './variables.css';
 @import './reset.css';
 @import './animations.css';
+/* OrbitCapField: one fixed, full-viewport canvas shared by Hero and
+   Education (see components/Hero/OrbitCapField.jsx). It only ever draws a
+   small region of itself (wherever the current anchor is), so it never
+   blocks or visually interferes with the rest of the page. z-index sits
+   below .hero-character (2) and .education-image-wrap (2, set in
+   Education.css) so those images stay in front of the particles, and
+   below Navbar's sticky z-index (100). */
+.orbit-cap-field {
+  position: fixed;
+  inset: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 1;
+  pointer-events: none;
+}
