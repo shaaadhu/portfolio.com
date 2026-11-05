@@ -13,7 +13,7 @@ const EASE = [0.16, 1, 0.3, 1];
 const PROJECTS = [
   { img: vidyenImg, title: 'Vidyen', desc: 'International dental education conference and a school management software platform.', tags: ['Flutter', 'MySQL', 'PHP', 'HTML', 'JavaScript'], webUrl: 'https://vidyen.yenepoya.in/', iosUrl: 'https://apps.apple.com/search?term=VIDYEN', androidUrl: 'https://play.google.com/store/apps/details?id=com.ytincubator.vidyen_app', sourceUrl: '' },
   { img: yenethicsImg, title: 'YenEthics', desc: 'The YEC-3 platform is a secure institutional portal designed to digitize and automate the entire ethical and scientific review workflow for human subject research.', tags: ['Flutter', 'MySQL', 'PHP'], webUrl: '', iosUrl: '', androidUrl: '', sourceUrl: '' },
-  { img: twitterImg, title: 'Twitter clone', desc: 'The Twitter (X) clone is a high-performance microblogging platform designed to replicate the core real-time functionalities of X', tags: ['Java', 'React', 'TensorFlow'], webUrl: '', iosUrl: '', androidUrl: '', sourceUrl: '' },
+  { img: twitterImg, title: 'Twitter clone', desc: 'The Twitter (X) clone is a high-performance microblogging platform designed to replicate the core real-time functionalities of X', tags: ['Java', 'React', 'MySQL'], webUrl: '', iosUrl: '', androidUrl: '', sourceUrl: '' },
 ];
 
 const cardVariants = {
